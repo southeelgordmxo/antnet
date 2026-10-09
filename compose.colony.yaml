@@ -1,0 +1,19 @@
+services:
+  colony:
+    build:
+      context: .
+      dockerfile: Dockerfile.colony
+    init: true
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"
+    env_file: .env
+    volumes:
+      - colony-data:/app/.local
+    shm_size: 1gb
+    mem_limit: 3g
+    cpus: 2
+    security_opt:
+      - no-new-privileges:true
+volumes:
+  colony-data:

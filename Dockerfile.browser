@@ -1,0 +1,10 @@
+FROM node:24-bookworm-slim
+WORKDIR /app
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev && npx playwright install --with-deps chromium
+COPY services ./services
+USER node
+ENV PORT=3001
+EXPOSE 3001
+CMD ["node", "services/browser-service.mjs"]
