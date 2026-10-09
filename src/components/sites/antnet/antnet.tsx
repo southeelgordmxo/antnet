@@ -449,6 +449,14 @@ export function AntNet({ view }: { view: string }) {
               {view === key ? "*" : ""}
             </a>
           ))}
+          <a
+            href="https://github.com/southeelgordmxo/antnet"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub — AntNet code and documentation (opens in a new tab)"
+          >
+            GitHub ↗
+          </a>
         </nav>
         <div className="nav-right">
           {colony.config.operatorRequired ? (
