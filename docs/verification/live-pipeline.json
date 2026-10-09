@@ -1,0 +1,158 @@
+{
+  "checkedAt": "2026-10-08T17:19:25.301Z",
+  "deploy": "6ac7cfe880008f10cf5a6617",
+  "order": {
+    "id": "a5f88b81-05a4-4452-bf99-cdee2dc1966a",
+    "url": "https://aave.com/docs",
+    "ant_id": "54d3688d-db42-48b1-be9b-cfef0298785f",
+    "status": "complete",
+    "pages": 3,
+    "target": 3,
+    "message": "Saved Aave V3 Overview | Aave Protocol Documentation Sent to Claude.",
+    "created": "2026-10-08T17:15:31.637Z",
+    "reads": 3,
+    "automatic": true,
+    "maxReads": 6
+  },
+  "answer": {
+    "id": "59262f84-8f7e-4fab-9307-afa175651ad8",
+    "question": "Summarize this expedition from aave.com. Explain the crypto concepts and risks with source citations.",
+    "answer": "**Summary:** The excerpts are Aave's own documentation, not independent analysis. They describe Aave as a decentralised, non-custodial liquidity protocol where suppliers earn interest and borrowers take loans against collateral [2][3]. Aave v3 is described as the stable, widely used version, and v4 as the next evolution [2]. It is deployed on 14+ networks [1].\n\n**Key concepts**\n- **Non-custodial / self-custody:** Users interact directly from their own wallets, and smart contracts enforce the rules without a central party [2].\n- **Supply and aTokens:** Supplying mints interest-bearing aTokens (e.g., aUSDC), whose balance grows with borrowing activity. Withdrawals depend on available unborrowed liquidity [1].\n- **Borrowing and over-collateralization:** Borrowers post collateral worth more than the loan. Debt is tracked by variableDebtTokens [1][2].\n- **Health Factor and liquidation:** If the Health Factor falls below 1, liquidators can repay part of the debt and receive collateral at a discount (the liquidation bonus) [1].\n- **Interest rates:** Rates follow a utilization curve with an \"optimal\" point or \"kink\". Below it, rates rise gradually, and above it, they rise more sharply [1][2]. Supplier yield comes from borrower interest net of a reserve factor [1].\n- **Earn Vaults (ERC-4626):** Depositors receive shares representing a proportional claim on the underlying assets and yield. Managers can charge fees [1].\n- **Risk-containment features:** E-Mode gives higher LTV for correlated assets. Isolation Mode limits what newer or more volatile collateral can borrow, up to a debt ceiling. Siloed borrowing restricts a user who borrows a siloed asset to borrowing only that asset [1].\n- **Governance:** AAVE token holders propose and vote on changes such as risk parameters and new assets [2].\n- **Extras:** The GHO stablecoin, Aave Horizon (borrowing stablecoins against RWAs), and Umbrella (\"native coverage for bad debt\") are mentioned [2][3].\n\n**Risks (stated or implied)**\n- **Liquidation risk:** Collateral price drops or accrued interest can push the Health Factor below 1, and collateral can then be sold at a discount [1].\n- **Oracle dependence:** The Health Factor relies on oracle prices [1].\n- **Liquidity risk:** Withdrawals are subject to available liquidity [1].\n- **Leverage risk:** E-Mode is described as enabling \"high-leverage strategies\" [1].\n- **Bad debt:** The existence of Umbrella implies bad debt can occur [3].\n- **Vault and manager risk:** Vaults have customizable ownership and fee structures, so terms may differ between vaults [1].\n- **Smart contract risk:** Security and audits are referenced, but the excerpts give no details [3].\n- **Governance risk:** Token-holder votes can change parameters [2].\n\n**Gaps and uncertainty**\n- The excerpts contain no current prices, yields, TVL, audit results, or incident history.\n- Specific parameters (LTVs, thresholds, debt ceilings) are only referenced, not provided [1].\n- This is project documentation, so it is likely to emphasize benefits over risks. Independent verification is needed.\n- Aave v4, Horizon, GHO, and Umbrella are named but not explained in these excerpts.",
+    "sources": [
+      {
+        "number": 1,
+        "title": "Aave V3 Overview | Aave Protocol Documentation",
+        "url": "https://aave.com/docs/aave-v3/overview"
+      },
+      {
+        "number": 2,
+        "title": "Aave 101 | Aave Protocol Documentation",
+        "url": "https://aave.com/docs/aave-101"
+      },
+      {
+        "number": 3,
+        "title": "Aave Protocol Overview",
+        "url": "https://aave.com/docs"
+      }
+    ],
+    "created": "2026-10-08T17:18:56.173Z"
+  },
+  "events": [
+    {
+      "id": "72b2d13e-7d71-42f6-8966-878dee617333",
+      "order_id": "a5f88b81-05a4-4452-bf99-cdee2dc1966a",
+      "ant_id": "54d3688d-db42-48b1-be9b-cfef0298785f",
+      "kind": "reasoned",
+      "url": "https://aave.com/docs",
+      "message": "Claude research saved with source citations",
+      "created": "2026-10-08T17:18:56.195Z"
+    },
+    {
+      "id": "87ba369b-55d2-4fbc-b703-cff736ea95ec",
+      "order_id": "a5f88b81-05a4-4452-bf99-cdee2dc1966a",
+      "ant_id": "54d3688d-db42-48b1-be9b-cfef0298785f",
+      "kind": "reasoning",
+      "url": "https://aave.com/docs",
+      "message": "Sending 3 collected sources to Claude for cited research",
+      "created": "2026-10-08T17:18:47.516Z"
+    },
+    {
+      "id": "095d4225-2005-413a-9593-29d22f9c48ce",
+      "order_id": "a5f88b81-05a4-4452-bf99-cdee2dc1966a",
+      "ant_id": "54d3688d-db42-48b1-be9b-cfef0298785f",
+      "kind": "saved",
+      "url": "https://aave.com/docs/aave-v3/overview",
+      "message": "Saved Aave V3 Overview | Aave Protocol Documentation",
+      "created": "2026-10-08T17:18:47.459Z"
+    },
+    {
+      "id": "ccef6633-e53e-4259-b699-7a3af6a4c9fd",
+      "order_id": "a5f88b81-05a4-4452-bf99-cdee2dc1966a",
+      "ant_id": "54d3688d-db42-48b1-be9b-cfef0298785f",
+      "kind": "frame",
+      "url": "https://aave.com/docs/aave-v3/overview",
+      "message": "Browser captured the source page",
+      "created": "2026-10-08T17:18:30.118Z"
+    },
+    {
+      "id": "b9f4cc97-beb6-4f36-a981-5c17603b335d",
+      "order_id": "a5f88b81-05a4-4452-bf99-cdee2dc1966a",
+      "ant_id": "54d3688d-db42-48b1-be9b-cfef0298785f",
+      "kind": "reading",
+      "url": "https://aave.com/docs/aave-v3/overview",
+      "message": "Checking robots.txt and extracting content",
+      "created": "2026-10-08T17:18:05.701Z"
+    },
+    {
+      "id": "6015d7af-33c0-455b-b5d1-5864e386a705",
+      "order_id": "a5f88b81-05a4-4452-bf99-cdee2dc1966a",
+      "ant_id": "54d3688d-db42-48b1-be9b-cfef0298785f",
+      "kind": "saved",
+      "url": "https://aave.com/docs/aave-101",
+      "message": "Saved Aave 101 | Aave Protocol Documentation",
+      "created": "2026-10-08T17:17:35.196Z"
+    },
+    {
+      "id": "5d64f092-e78f-450c-8cdf-a6da16d513c2",
+      "order_id": "a5f88b81-05a4-4452-bf99-cdee2dc1966a",
+      "ant_id": "54d3688d-db42-48b1-be9b-cfef0298785f",
+      "kind": "reading",
+      "url": "https://aave.com/docs/aave-101",
+      "message": "Checking robots.txt and extracting content",
+      "created": "2026-10-08T17:15:59.417Z"
+    },
+    {
+      "id": "75815a30-7655-46f6-b21f-67e32f81b361",
+      "order_id": "a5f88b81-05a4-4452-bf99-cdee2dc1966a",
+      "ant_id": "54d3688d-db42-48b1-be9b-cfef0298785f",
+      "kind": "saved",
+      "url": "https://aave.com/docs",
+      "message": "Saved Aave Protocol Overview",
+      "created": "2026-10-08T17:15:58.929Z"
+    },
+    {
+      "id": "ca92c608-4c64-4bd8-ba1b-6b287f5b89ff",
+      "order_id": "a5f88b81-05a4-4452-bf99-cdee2dc1966a",
+      "ant_id": "54d3688d-db42-48b1-be9b-cfef0298785f",
+      "kind": "frame",
+      "url": "https://aave.com/docs",
+      "message": "Browser captured the source page",
+      "created": "2026-10-08T17:15:58.288Z"
+    },
+    {
+      "id": "82a302c7-5773-4649-a29b-ce6f9b121efa",
+      "order_id": "a5f88b81-05a4-4452-bf99-cdee2dc1966a",
+      "ant_id": "54d3688d-db42-48b1-be9b-cfef0298785f",
+      "kind": "frame",
+      "url": "https://aave.com/docs",
+      "message": "Browser captured the source page",
+      "created": "2026-10-08T17:15:56.235Z"
+    },
+    {
+      "id": "b6547e7e-3c28-4539-b7c7-3eb3320ff499",
+      "order_id": "a5f88b81-05a4-4452-bf99-cdee2dc1966a",
+      "ant_id": "54d3688d-db42-48b1-be9b-cfef0298785f",
+      "kind": "frame",
+      "url": "https://aave.com/docs",
+      "message": "Browser captured the source page",
+      "created": "2026-10-08T17:15:53.865Z"
+    },
+    {
+      "id": "3c177933-979c-4d07-9d6f-80f54257e030",
+      "order_id": "a5f88b81-05a4-4452-bf99-cdee2dc1966a",
+      "ant_id": "54d3688d-db42-48b1-be9b-cfef0298785f",
+      "kind": "reading",
+      "url": "https://aave.com/docs",
+      "message": "Checking robots.txt and extracting content",
+      "created": "2026-10-08T17:15:35.495Z"
+    }
+  ],
+  "checks": [
+    "Forage now dispatched from live UI",
+    "Ant position changed during real fetching",
+    "Main screenshot updated before source completion",
+    "Mobile viewport has no document overflow; Forage now visible",
+    "Three sources saved and sent to Claude; cited answer retained"
+  ],
+  "pages": 16
+}
