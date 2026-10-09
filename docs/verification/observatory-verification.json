@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-08",
+  "site": "https://antnet-colony.netlify.app/",
+  "version": "0.11.0",
+  "checks": {
+    "typescript": "passed",
+    "focusedEslint": "passed",
+    "productionFrontendBuild": "passed",
+    "fullSavedText": "verified beyond stored excerpt",
+    "sourceNavigation": "verified previous/next saved-source selection",
+    "events": "verified actual server events",
+    "expandAndEscape": "passed",
+    "mobileWidth": 390,
+    "mobileDocumentWidth": 375,
+    "idlePatrol": "38 second loop verified running with PATROLLING / LAST CAPTURE label",
+    "animationPauseResume": "verified paused and running browser styles"
+  },
+  "liveExpedition": {
+    "id": "fa4566bf-3aa9-415d-bdfe-fb5786468467",
+    "origin": "https://ethereum.org/",
+    "trigger": "observatory Forage now",
+    "status": "complete",
+    "pages": 3,
+    "target": 3,
+    "attemptedReads": 4,
+    "reasoningStarted": "2026-10-08T17:34:45.913Z",
+    "citedReportSaved": "2026-10-08T17:34:57.985Z",
+    "corpusPagesAfterRun": 19
+  },
+  "notes": [
+    "Browser display uses refreshed Chromium screenshots, not continuous video.",
+    "The main observatory labels decorative patrol separately from actual fetching; paused ants and reduced-motion preferences stop the patrol.",
+    "One MutationObserver console error was observed without a source URL; no matching application code was found and the tested interactions completed.",
+    "The proposed creator-reward allocation remains 50%; financial execution remains inactive."
+  ],
+  "deployId": "6ac7d5f2ef955f19e5683ee4"
+}
