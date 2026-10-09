@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import type { Colony } from "./antnet";
 import { BrowserFrame } from "./live-foraging";
-import { AntScout } from "./ant-scout";
+import { CrawlingAnt } from "./crawling-ant";
 import { useScoutActivity } from "./use-scout-activity";
 import { readApiResponse } from "../../../lib/api-response";
 import "./live-observatory.css";
@@ -268,15 +268,12 @@ export function LiveObservatory({
                       ? "↝ PATROLLING · LAST CAPTURE"
                       : "◷ LAST CAPTURE"}
             </div>
-            <div
-              className={
-                scout.fetching || patrolling
-                  ? "ant-foraging-wanderer"
-                  : "ant-foraging-resting"
-              }
-            >
-              <AntScout />
-            </div>
+            <CrawlingAnt
+              moving={scout.fetching || patrolling}
+              paused={motionPaused}
+              fetching={scout.fetching}
+              seed={scout.ant?.id}
+            />
             <div className="observatory-capture">
               <span>{scout.ant?.name || "SCOUT"}</span>
               <span>
