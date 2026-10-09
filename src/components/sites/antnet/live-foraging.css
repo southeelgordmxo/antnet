@@ -1,0 +1,591 @@
+.ant-foraging {
+  border: 1px solid var(--line);
+  margin: 28px 0;
+  background: var(--paper);
+}
+.live-grid > .ant-foraging {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+.ant-foraging-header {
+  padding: 22px 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+.ant-foraging-eyebrow {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  line-height: 1.5;
+}
+.ant-foraging-header h2 {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-top: 6px;
+}
+.ant-foraging-controls {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.ant-foraging-controls button {
+  display: grid;
+  place-items: center;
+  padding: 8px;
+}
+.ant-foraging-status {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 10px;
+  white-space: nowrap;
+}
+.ant-foraging-status.is-active {
+  color: var(--accent);
+}
+.ant-foraging-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(275px, 1fr);
+}
+.ant-foraging-browser {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ant-foraging-browserbar {
+  min-height: 44px;
+  padding: 10px 16px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  font-size: 11px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+.ant-foraging-browserdots {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #b8b1a4;
+  flex-shrink: 0;
+}
+.ant-foraging-browserbar a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ant-foraging-browserbar a svg {
+  flex-shrink: 0;
+}
+.ant-foraging-viewport {
+  position: relative;
+  min-height: 410px;
+  flex: 1;
+  overflow: hidden;
+  background-color: #f9f7f1;
+  background-image: radial-gradient(#d7d0c2 0.6px, transparent 0.6px);
+  background-size: 18px 18px;
+}
+.ant-foraging-source {
+  padding: 46px 44px 105px;
+  max-width: 700px;
+}
+.ant-foraging-source h3 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(22px, 2.2vw, 34px);
+  line-height: 1.2;
+  margin: 18px 0;
+}
+.ant-foraging-source p {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #6f675d;
+  overflow-wrap: anywhere;
+}
+.ant-foraging-source a {
+  margin-top: 22px;
+  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--accent);
+}
+.ant-foraging-wanderer,
+.ant-foraging-resting {
+  width: 112px;
+  height: 133px;
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 1px #fff8e8) drop-shadow(2px 5px 3px #37271b59);
+}
+.hero-browser-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.hero-browser-frame .ant-foraging-frame,
+.hero-browser-frame .ant-foraging-frame-status {
+  min-height: 100%;
+  height: 100%;
+}
+.hero-browser-frame .ant-foraging-frame-image {
+  height: 100%;
+  object-fit: cover;
+}
+.ant-stage .stage-label,
+.ant-stage .ant-caption {
+  z-index: 3;
+  background: #f5f1e9ed;
+  color: var(--ink);
+}
+.ant-stage .stage-label {
+  gap: 12px;
+}
+.ant-stage .ant-caption {
+  padding: 7px;
+  gap: 10px;
+}
+.ant-stage .ant-foraging-resting {
+  bottom: 50px;
+}
+.ant-stage .ant-foraging-wanderer,
+.ant-stage .ant-foraging-resting {
+  z-index: 2;
+}
+.hero-schedule {
+  padding: 12px 18px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--accent);
+}
+.hero-schedule span {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+}
+.reader-status button {
+  display: inline-flex;
+  color: var(--accent);
+  border: 1px solid var(--line);
+  padding: 3px 7px;
+  white-space: nowrap;
+}
+.reader-status {
+  align-items: center;
+  flex-wrap: wrap;
+}
+.ant-foraging-resting {
+  bottom: 22px;
+  right: 28px;
+  transform: rotate(-35deg);
+}
+.ant-foraging-wanderer {
+  left: 12%;
+  top: 18%;
+  animation: ant-foraging-walk 22s linear infinite;
+  will-change: transform, left, top;
+}
+.ant-scout {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.ant-scout-body {
+  transform-origin: 80px 95px;
+}
+.ant-scout-antenna-left {
+  transform-origin: 66px 39px;
+}
+.ant-scout-antenna-right {
+  transform-origin: 94px 39px;
+}
+:is(.is-fetching, .is-patrolling) .ant-scout-body {
+  animation: ant-scout-body-lift 0.48s ease-in-out infinite;
+}
+/* Left front + left rear + right middle alternate with the opposite tripod. */
+:is(.is-fetching, .is-patrolling) .ant-scout-leg {
+  animation: ant-scout-leg-left 0.48s ease-in-out infinite;
+}
+:is(.is-fetching, .is-patrolling) .ant-scout-right {
+  animation-name: ant-scout-leg-right;
+}
+:is(.is-fetching, .is-patrolling) .ant-scout-shin {
+  animation: ant-scout-shin-left 0.48s ease-in-out infinite;
+}
+:is(.is-fetching, .is-patrolling) .ant-scout-right .ant-scout-shin {
+  animation-name: ant-scout-shin-right;
+}
+:is(.is-fetching, .is-patrolling) .ant-scout-tripod-b,
+:is(.is-fetching, .is-patrolling) .ant-scout-tripod-b .ant-scout-shin {
+  animation-delay: -0.24s;
+}
+:is(.is-fetching, .is-patrolling) .ant-scout-antenna {
+  animation: ant-scout-feel-left 1.4s ease-in-out infinite alternate;
+}
+:is(.is-fetching, .is-patrolling) .ant-scout-antenna-right {
+  animation-name: ant-scout-feel-right;
+  animation-delay: -0.7s;
+}
+.ant-foraging-frame {
+  position: relative;
+  min-height: 410px;
+  height: 100%;
+}
+.ant-foraging-frame-preload {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.ant-foraging-frame-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 720px;
+  object-fit: cover;
+  object-position: top left;
+}
+.ant-foraging-frame-loading {
+  visibility: hidden;
+  height: 0;
+}
+.ant-foraging-frame-status {
+  min-height: 410px;
+  display: grid;
+  place-items: center;
+  padding: 40px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+.ant-foraging-caption {
+  padding: 10px 16px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  color: var(--muted);
+  font-size: 10px;
+}
+.ant-foraging-assignment {
+  border-top: 1px solid var(--line);
+  padding: 14px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 20px;
+  font-size: 11px;
+}
+.ant-foraging-assignment label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+.ant-foraging-assignment select {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 5px 8px;
+  max-width: 200px;
+}
+.ant-foraging-side {
+  min-width: 0;
+  border-left: 1px solid var(--line);
+}
+.ant-foraging-autopilot {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+.ant-foraging-autopilot strong,
+.ant-foraging-handoff strong {
+  display: block;
+  font-size: 12px;
+  margin-top: 6px;
+}
+.ant-foraging-autopilot button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+.ant-foraging-autopilot p {
+  width: 100%;
+  font-size: 11px;
+  color: var(--muted);
+}
+.ant-foraging-autopilot small {
+  color: var(--muted);
+  font-size: 10px;
+}
+.ant-foraging-handoff {
+  padding: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.ant-foraging-handoff p {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 8px 0 12px;
+}
+.ant-foraging-handoff a {
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+}
+.ant-foraging-handoff .ant-foraging-harvest-link {
+  display: flex;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.ant-foraging-stream h3 {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 400;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.ant-foraging-stream h3 span {
+  font-size: 9px;
+  color: var(--muted);
+}
+.ant-foraging-stream ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  max-height: 370px;
+  overflow-y: auto;
+}
+.ant-foraging-stream li {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.ant-foraging-stream li:last-child {
+  border: 0;
+}
+.ant-foraging-stream li > div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+}
+.ant-foraging-stream time {
+  color: var(--muted);
+}
+.ant-foraging-event-kind {
+  color: var(--muted);
+}
+.ant-foraging-event-kind.kind-reading,
+.ant-foraging-event-kind.kind-saved,
+.ant-foraging-event-kind.kind-refreshed {
+  color: var(--accent);
+}
+.ant-foraging-stream li p {
+  font-size: 11px;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+.ant-foraging-stream li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.ant-foraging-empty {
+  padding: 22px 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+@keyframes ant-foraging-walk {
+  0% {
+    left: 12%;
+    top: 18%;
+    transform: rotate(90deg);
+  }
+  23% {
+    left: calc(100% - 140px);
+    top: 25%;
+    transform: rotate(110deg);
+  }
+  25% {
+    left: calc(100% - 140px);
+    top: 25%;
+    transform: rotate(200deg);
+  }
+  48% {
+    left: 48%;
+    top: calc(100% - 155px);
+    transform: rotate(200deg);
+  }
+  50% {
+    left: 48%;
+    top: calc(100% - 155px);
+    transform: rotate(280deg);
+  }
+  73% {
+    left: 10%;
+    top: calc(100% - 175px);
+    transform: rotate(280deg);
+  }
+  75% {
+    left: 10%;
+    top: calc(100% - 175px);
+    transform: rotate(360deg);
+  }
+  98% {
+    left: 12%;
+    top: 18%;
+    transform: rotate(360deg);
+  }
+  100% {
+    left: 12%;
+    top: 18%;
+    transform: rotate(450deg);
+  }
+}
+@keyframes ant-scout-leg-left {
+  0%,
+  100% {
+    transform: rotate(-12deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+}
+@keyframes ant-scout-leg-right {
+  0%,
+  100% {
+    transform: rotate(12deg);
+  }
+  50% {
+    transform: rotate(-12deg);
+  }
+}
+@keyframes ant-scout-shin-left {
+  0%,
+  100% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+}
+@keyframes ant-scout-shin-right {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+}
+@keyframes ant-scout-body-lift {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0) rotate(-0.6deg);
+  }
+  25%,
+  75% {
+    transform: translateY(-1.2px) rotate(0.6deg);
+  }
+}
+@keyframes ant-scout-feel-left {
+  from {
+    transform: rotate(-9deg);
+  }
+  to {
+    transform: rotate(9deg);
+  }
+}
+@keyframes ant-scout-feel-right {
+  from {
+    transform: rotate(10deg);
+  }
+  to {
+    transform: rotate(-7deg);
+  }
+}
+@media (max-width: 900px) {
+  .ant-foraging-grid {
+    grid-template-columns: 1fr;
+  }
+  .ant-foraging-side {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .ant-foraging-viewport,
+  .ant-foraging-frame,
+  .ant-foraging-frame-status {
+    min-height: 350px;
+  }
+}
+@media (max-width: 520px) {
+  .ant-foraging-header {
+    padding: 18px 16px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .ant-foraging-header h2 {
+    font-size: 27px;
+  }
+  .ant-foraging-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .ant-foraging-source {
+    padding: 32px 24px 100px;
+  }
+  .ant-foraging-source p {
+    font-size: 15px;
+  }
+  .ant-foraging-browserbar {
+    gap: 10px;
+  }
+  .ant-foraging-browserdots {
+    display: none;
+  }
+  .ant-foraging-wanderer,
+  .ant-foraging-resting {
+    width: 94px;
+    height: 112px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ant-foraging-wanderer,
+  :is(.is-fetching, .is-patrolling) .ant-scout-body,
+  :is(.is-fetching, .is-patrolling) .ant-scout-leg,
+  :is(.is-fetching, .is-patrolling) .ant-scout-shin,
+  :is(.is-fetching, .is-patrolling) .ant-scout-antenna {
+    animation: none;
+  }
+}
