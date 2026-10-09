@@ -6,7 +6,7 @@ import { ArrowUpRight, Pause, Play, Radio, RefreshCw } from "lucide-react";
 import type { Colony } from "./antnet";
 import { readApiResponse } from "../../../lib/api-response";
 import "./live-foraging.css";
-import { AntScout } from "./ant-scout";
+import { CrawlingAnt } from "./crawling-ant";
 import { useScoutActivity } from "./use-scout-activity";
 
 type ForagingColony = Colony & {
@@ -78,6 +78,7 @@ export function BrowserFrame({
 export function LiveForagingPanel({ colony, refresh, notify }: Props) {
   const [busy, setBusy] = useState(false);
   const [selectedAnt, setSelectedAnt] = useState("");
+  const [motionPaused, setMotionPaused] = useState(false);
   const {
     ant,
     order,
@@ -131,6 +132,16 @@ export function LiveForagingPanel({ colony, refresh, notify }: Props) {
           <h2 id="ant-foraging-heading">Follow the trail.</h2>
         </div>
         <div className="ant-foraging-controls">
+          <button
+            type="button"
+            onClick={() => setMotionPaused((value) => !value)}
+            aria-label={
+              motionPaused ? "Resume ant animation" : "Pause ant animation"
+            }
+            aria-pressed={motionPaused}
+          >
+            {motionPaused ? <Play size={15} /> : <Pause size={15} />}
+          </button>
           <span
             className={
               fetching ? "ant-foraging-status is-active" : "ant-foraging-status"
@@ -197,16 +208,12 @@ export function LiveForagingPanel({ colony, refresh, notify }: Props) {
                 )}
               </div>
             )}
-            {fetching && (
-              <div className="ant-foraging-wanderer">
-                <AntScout />
-              </div>
-            )}
-            {!fetching && (
-              <div className="ant-foraging-resting" aria-hidden="true">
-                <AntScout />
-              </div>
-            )}
+            <CrawlingAnt
+              moving={Boolean(ant) && !ant?.paused}
+              paused={motionPaused}
+              fetching={fetching}
+              seed={ant?.id}
+            />
           </div>
           <div className="ant-foraging-caption">
             <span>
@@ -215,7 +222,9 @@ export function LiveForagingPanel({ colony, refresh, notify }: Props) {
                 : "Extracted source view · browser screenshots not connected"}
             </span>
             <span>
-              Animated scout · follows fetch activity, not cursor position.
+              {fetching
+                ? "Reading now · animated scout"
+                : "Idle patrol · animation does not collect new pages"}
             </span>
           </div>
           <div className="ant-foraging-assignment">
